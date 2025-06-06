@@ -173,13 +173,14 @@ a:hover {
     text-align: center;
 }
 .contactColumn i {
-    color: #198754; /* Vert Bootstrap pour un bon contraste */
+    color: #198754; /* Couleur de base de l'icône */
     margin-bottom: 1rem;
-    transition: transform 0.3s, color 0.3s;
+    /* Optimisation Performance: On n'anime que la propriété 'transform', qui est performante */
+    transition: transform 0.3s ease-in-out;
 }
 .contactColumn a:hover i {
-    transform: scale(1.2);
-    color: #157347;
+    transform: scale(1.2); /* Animation performante */
+    color: #157347; /* Changement de couleur au survol, sans transition, pour éviter les animations non-composées */
 }
 .contactColumn p a {
     text-decoration: none;
