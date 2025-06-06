@@ -1,106 +1,129 @@
-// Function to add the "navbarDark" class to the navbar on scroll
-function handleNavbarScroll() {
-    const header = document.querySelector(".navbar");
-    window.onscroll = function () {
-        const top = window.scrollY;
-        if (top >= 100) {
-            header.classList.add("navbarDark");
-        } else {
-            header.classList.remove("navbarDark");
-        }
-    };
-}
+// script/script.js
 
-// Function to handle navbar collapse on small devices after a click
-function handleNavbarCollapse() {
-    const navLinks = document.querySelectorAll(".nav-item");
-    const menuToggle = document.getElementById("navbarSupportedContent");
+// Attend que le contenu du DOM soit entièrement chargé avant d'exécuter le script
+document.addEventListener('DOMContentLoaded', function() {
 
-    navLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-            new bootstrap.Collapse(menuToggle).toggle();
+    // --- FONCTIONS ---
+
+    /**
+     * Gère l'effet de la barre de navigation qui change de couleur au défilement.
+     */
+    function handleNavbarScroll() {
+        const header = document.querySelector(".navbar");
+        if (!header) return; // Sécurité si la navbar n'existe pas
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY >= 100) {
+                header.classList.add("navbarDark");
+            } else {
+                header.classList.remove("navbarDark");
+            }
         });
-    });
-}
+    }
 
-// Function to dynamically create HTML elements from the JSON file
-function createSkillsFromJSON() {
-    const container = document.querySelector("#skills .container");
-    let row = document.createElement("div");
-    row.classList.add("row");
+    /**
+     * Gère la fermeture du menu burger sur mobile après un clic sur un lien.
+     */
+    function handleNavbarCollapse() {
+        const navLinks = document.querySelectorAll(".nav-link");
+        const menuToggle = document.getElementById("navbarSupportedContent");
+        
+        if (!menuToggle) return; // Sécurité
 
-    // Load the JSON file
-    fetch("data/skills.json")
-        .then((response) => response.json())
-        .then((data) => {
-            // Iterate through the JSON data and create HTML elements
-            data.forEach((item, index) => {
-                const card = document.createElement("div");
-                card.classList.add("col-lg-4", "mt-4");
-                card.innerHTML = `
-                    <div class="card skillsText">
-                        <div class="card-body">
-                            <img src="./images/${item.image}" />
-                            <h4 class="card-title mt-3">${item.title}</h4>
-                            <p class="card-text mt-3">${item.text}</p>
-                        </div>
-                    </div>
-                `;
+        const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
 
-                // Append the card to the current row
-                row.appendChild(card);
-
-                // If the index is a multiple of 3 or it's the last element, create a new row
-                if ((index + 1) % 3 === 0 || index === data.length - 1) {
-                    container.appendChild(row);
-                    row = document.createElement("div");
-                    row.classList.add("row");
+        navLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+                if (menuToggle.classList.contains('show')) {
+                    bsCollapse.toggle();
                 }
             });
         });
-}
-// Function to dynamically create HTML elements from the JSON file
-function createPortfolioFromJSON() {
-    const container = document.querySelector("#portfolio .container");
-    let row = document.createElement("div");
-    row.classList.add("row");
+    }
 
-    // Load the JSON file
-    fetch("data/portfolio.json")
-        .then((response) => response.json())
-        .then((data) => {
-            // Iterate through the JSON data and create HTML elements
-            data.forEach((item, index) => {
-                const card = document.createElement("div");
-                card.classList.add("col-lg-4", "mt-4");
-                card.innerHTML = `
-                    <div class="card portfolioContent">
-                    <img class="card-img-top" src="images/${item.image}" style="width:100%">
-                    <div class="card-body">
-                        <h4 class="card-title">${item.title}</h4>
-                        <p class="card-text">${item.text}</p>
-                        <div class="text-center">
-                            <a href="${item.link}" class="btn btn-success">Lien</a>
-                        </div>
-                    </div>
-                </div>
-                `;
+    /**
+     * Charge les données des compétences depuis un fichier JSON et les affiche.
+     */
+    function renderSkills() {
+        const container = document.getElementById("skills-container");
+        if (!container) return;
 
-                // Append the card to the current row
-                row.apendChild(card);
-
-                // If the index is a multiple of 3 or it's the last element, create a new row
-                if ((index + 1) % 3 === 0 || index === data.length - 1) {
-                    container.appendChild(row);
-                    row = document.createElement("div");
-                    row.classList.add("row");
+        fetch('data/skills.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
                 }
+                return response.json();
+            })
+            .then(skillsData => {
+                container.innerHTML = ''; // Vide le conteneur
+                skillsData.forEach(item => {
+                    const cardWrapper = document.createElement("div");
+                    cardWrapper.classList.add("col-lg-4", "col-md-6", "mb-4");
+                    
+                    cardWrapper.innerHTML = `
+                        <div class="card skillsText">
+                            <img src="${item.image}" class="card-img-top skills-card-img" alt="Logo de ${item.title}" loading="lazy">
+                            <div class="card-body">
+                                <h3 class="card-title h5">${item.title}</h3>
+                                <p class="card-text">${item.text}</p>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(cardWrapper);
+                });
+            })
+            .catch(error => {
+                console.error("Erreur lors du chargement du fichier de compétences (skills.json):", error);
+                container.innerHTML = `<p class="text-center text-danger">Impossible de charger les compétences. Assurez-vous que le fichier data/skills.json est accessible.</p>`;
             });
-        });
-}
+    }
 
-// Call the functions to execute the code
-handleNavbarScroll();
-handleNavbarCollapse();
-createSkillsFromJSON();
-createPortfolioFromJSON();
+    /**
+     * Charge les données du portfolio depuis un fichier JSON et les affiche.
+     */
+    function renderPortfolio() {
+        const container = document.getElementById("portfolio-container");
+        if (!container) return;
+
+        fetch('data/portfolio.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(portfolioData => {
+                container.innerHTML = ''; // Vide le conteneur
+                portfolioData.forEach(item => {
+                    const cardWrapper = document.createElement("div");
+                    cardWrapper.classList.add("col-lg-6", "mb-4");
+                    
+                    cardWrapper.innerHTML = `
+                        <div class="card portfolioContent">
+                            <img class="card-img-top" src="${item.image}" alt="Aperçu du projet ${item.title}" loading="lazy">
+                            <div class="card-body">
+                                <h3 class="card-title h5">${item.title}</h3>
+                                <p class="card-text">${item.text}</p>
+                                <div class="text-center mt-3">
+                                    <a href="${item.link}" class="btn btn-success" target="_blank" rel="noopener noreferrer">Voir le projet</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(cardWrapper);
+                });
+            })
+            .catch(error => {
+                console.error("Erreur lors du chargement du fichier de portfolio (portfolio.json):", error);
+                container.innerHTML = `<p class="text-center text-danger">Impossible de charger les projets. Assurez-vous que le fichier data/portfolio.json est accessible.</p>`;
+            });
+    }
+
+    // --- APPELS DE FONCTIONS ---
+    handleNavbarScroll();
+    handleNavbarCollapse();
+    renderSkills();
+    renderPortfolio();
+
+});

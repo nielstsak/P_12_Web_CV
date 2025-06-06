@@ -1,20 +1,26 @@
 [
     {
-        "image": "image1.png",
-        "title": "Booki",
-        "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        "link": "#"
+        "image": "images/projet-booki.webp",
+        "title": "Projet 1 : Booki (HTML & CSS)",
+        "text": "Intégration d'une maquette Figma en HTML & CSS pour un site de réservation, en réalisant une interface responsive et accessible.",
+        "link": "https://github.com/VOTRE-NOM-UTILISATEUR/VOTRE-REPO-BOOKI"
     },
     {
-        "image": "image2.png",
-        "title": "Mon Vieux grimoire",
-        "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        "link": "#"
+        "image": "images/projet-sophie-bluel.webp",
+        "title": "Projet 2 : Portfolio d'architecte (JavaScript)",
+        "text": "Création d'une page de portfolio dynamique avec JavaScript, gérant l'affichage des projets depuis une API et la connexion utilisateur.",
+        "link": "https://github.com/nielstsak/Portfolio_architecte.git"
     },
     {
-        "image": "image3.png",
-        "title": "Kasa",
-        "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        "link": "#"
+        "image": "images/projet-kasa.webp",
+        "title": "Projet 3 : Kasa (React)",
+        "text": "Développement d'une application de location immobilière avec React, incluant la gestion des routes avec React Router et des composants réutilisables.",
+        "link": "https://github.com/nielstsak/Kasa_OpenClassroom.git"
+    },
+    {
+        "image": "images/projet-cypress.webp",
+        "title": "Projet 4 : Tests automatisés (Cypress)",
+        "text": "Automatisation de tests fonctionnels avec Cypress pour une boutique en ligne, depuis l'analyse des besoins jusqu'à la rédaction du bilan de campagne.",
+        "link": "https://github.com/nielstsak/TesteurLogiciel_Automatisez_des_tests_pour_une_boutique_en_ligne.git"
     }
 ]

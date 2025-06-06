@@ -1,32 +1,32 @@
 [
     {
-        "image": "html-css.jpg",
-        "title": "HTML - CSS",
-        "text": "Intégration d’interfaces responsives et accessibles, utilisation de maquettes Figma, développement d’animations CSS"
+        "image": "images/html-css.webp",
+        "title": "HTML5 & CSS3",
+        "text": "Intégration d'interfaces responsives et accessibles, développement d'animations CSS en respectant les maquettes."
     },
     {
-        "image": "js.jpg",
-        "title": "javascript",
-        "text": "Manipulation du DOM, création d’éléments dynamiques, gestion de données de formulaires"
+        "image": "images/javascript.webp",
+        "title": "JavaScript",
+        "text": "Manipulation dynamique du DOM, gestion des événements et des formulaires, interaction avec des API REST."
     },
     {
-        "image": "react.jpg",
+        "image": "images/react.webp",
         "title": "React",
-        "text": "Création d’applications React, création de composants et manipulation de leur état"
+        "text": "Développement d'applications web modernes, création de composants, gestion de l'état et routing avec React Router."
     },
     {
-        "image": "gestion-de-projet.png",
-        "title": "Gestion de projet",
-        "text": "Analyse des besoins d’un client, définition d’une solution technique répondant aux besoins fonctionnelle, planification du projet"
+        "image": "images/cypress.webp",
+        "title": "Tests Automatisés & Qualité",
+        "text": "Conception de stratégies de test, rédaction de cahiers de recette et automatisation des tests E2E avec Cypress."
     },
     {
-        "image": "optimisation-et-debug.png",
-        "title": "Optimisation et debug",
-        "text": "Identification des anomalies et correction d’un site existant, optimisation SEO et performance et publication d’un site en ligne"
+        "image": "images/jira.webp",
+        "title": "Gestion de Projet Agile",
+        "text": "Analyse des besoins, suivi des anomalies sur Jira et travail en méthodologie Agile pour assurer la qualité du produit."
     },
     {
-        "image": "test.png",
-        "title": "Test",
-        "title ": "Tests exploratoires, unitaires et d’intégration, définition d’une stratégie de test et d’un rédaction d’un cahier de recette, automatisation de tests E2E et d’API"
+        "image": "images/github.webp",
+        "title": "Outils de Développement",
+        "text": "Maîtrise de Git et GitHub pour le contrôle de version, et utilisation de Postman pour les tests d'API."
     }
 ]

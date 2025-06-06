@@ -1,101 +1,190 @@
-/******* GENERAL *******/
-/* spacing on all sections */
-#about,
-#skills,
-#portfolio,
-#contact {
-    margin-top: 4rem;
-    padding-top: 4rem;
+/* CSS/style.css */
+
+/******* GENERAL & ACCESSIBILITÉ *******/
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-#about h2,
-#skills h2,
-#portfolio h2,
-#contact h2 {
+
+/* Espacement sur les sections principales */
+#about, #skills, #portfolio, #contact {
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+}
+
+h2 {
     margin-bottom: 3rem;
 }
-#contact {
-    padding-bottom: 4rem;
+
+/* Optimisation Accessibilité: Amélioration du focus pour tous les éléments interactifs */
+a, button, [tabindex="0"] {
+    transition: outline-offset 0.1s ease;
+}
+a:focus-visible, button:focus-visible, [tabindex="0"]:focus-visible {
+    outline: 3px solid #0d6efd; /* Bleu Bootstrap pour une bonne visibilité */
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+a {
+    color: #0d6efd;
+}
+a:hover {
+    color: #0a58ca;
 }
 
-/* display background dark color on navbar scroll */
+
+/******* NAVBAR *******/
+/* Optimisation Contraste: Couleur de fond plus foncée pour le texte blanc */
+.navbar {
+    background-color: rgba(26, 37, 47, 0.9);
+    transition: background-color 0.3s ease-in-out;
+}
 .navbarScroll.navbarDark {
-    background-color: #5b5b5b;
+    background-color: #1a252f;
+}
+.navbar-brand {
+    font-weight: bold;
+}
+.nav-link {
+    transition: color 0.2s;
+}
+.nav-link:hover, .nav-link.active {
+    color: #ffffff !important;
+    font-weight: bold;
 }
 
-/* hero background image */
+
+/******* HERO SECTION *******/
 .bgimage {
     height: 100vh;
-    max-height: 900px;
-    background: url("images/image1.jpg");
+    max-height: 800px;
+    background: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80') center center;
     background-size: cover;
     position: relative;
-}
-/* text css above hero image*/
-.hero_title {
-    font-size: 4.5rem;
-}
-.hero_desc {
-    font-size: 2rem;
-}
-.hero-text {
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     color: white;
 }
 
-/* about */
-.imageAboutPage {
+/* Superposition pour assombrir l'image et améliorer la lisibilité du texte */
+.bgimage::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-}
-.imageAboutPage {
-    border-radius: 50%;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
-/* skills */
-.skillsText.card {
-    height: 350px;
-    cursor: pointer;
+.hero-text {
+    text-align: center;
+    position: relative;
+    z-index: 2; /* Pour être au-dessus de la superposition */
+    padding: 20px;
 }
-.skillsText img {
+
+/* Police responsive pour une meilleure adaptation aux différentes tailles d'écran */
+.hero_title {
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+.hero_desc {
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+}
+
+
+/******* ABOUT SECTION *******/
+.imageAboutPage {
     width: 100%;
-    height: 150px;
+    max-width: 300px; /* Taille réduite pour un meilleur équilibre */
+    border-radius: 50%;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+    border: 5px solid white;
+}
+#about ul {
+    list-style: none;
+    padding-left: 0;
+}
+#about li {
+    padding: 5px 0;
+    font-size: 1.1rem;
+}
+
+
+/******* SKILLS & PORTFOLIO CARDS *******/
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Assure que les cartes dans une même rangée ont la même hauteur */
+}
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 200px;
+    object-fit: cover;
+}
+.skills-card-img {
+    width: 100%;
+    height: 140px;
     object-fit: contain;
-}
-#skills p {
-    text-align: center;
-}
-.skillsIcon {
-    font-size: 36px;
-    text-align: center;
-    width: 100%;
+    padding: 20px;
 }
 .card-title {
+    color: #1a252f;
+    font-weight: bold;
     text-align: center;
 }
-.card:hover .skillsIcon {
-    color: #008000;
+.card-body {
+    display: flex;
+    flex-direction: column;
 }
-.skillsText:hover {
-    border: 1px solid #008000;
-}
-
-/* portfolio */
-#portfolio p {
+.card-text {
+    flex-grow: 1; /* Permet au texte de prendre l'espace disponible */
     text-align: center;
+    font-size: 0.95rem;
+    color: #555;
+}
+.btn-success {
+    background-color: #198754;
+    border-color: #198754;
+    font-weight: bold;
+}
+.btn-success:hover {
+    background-color: #157347;
+    border-color: #146c43;
 }
 
-/* contact */
+
+/******* CONTACT SECTION *******/
 .contactColumn {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 .contactColumn i {
-    color: #198754;
+    color: #198754; /* Vert Bootstrap pour un bon contraste */
+    margin-bottom: 1rem;
+    transition: transform 0.3s, color 0.3s;
 }
-
-/* footer */
+.contactColumn a:hover i {
+    transform: scale(1.2);
+    color: #157347;
+}
+.contactColumn p a {
+    text-decoration: none;
+    color: #333;
+}
+.contactColumn p a:hover {
+    text-decoration: underline;
+}
