@@ -7,10 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Portfolio de Niels Tsakiris, développeur web et testeur logiciel. Découvrez mes compétences et mes projets.">
     
-    <!-- Préchargement de l'image LCP pour indiquer au navigateur de la charger en priorité -->
     <link rel="preload" fetchpriority="high" as="image" href="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80" type="image/webp">
 
-    <!-- Chargement CSS standard pour corriger le CLS. C'est plus simple et plus stable. -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" xintegrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
@@ -18,6 +16,9 @@
 </head>
 
 <body>
+    <!-- Lien d'évitement pour l'accessibilité -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    
     <!-- Navbar -->
     <header>
         <nav class="navbar navbar-expand-lg fixed-top navbar-dark navbarScroll">
@@ -51,14 +52,15 @@
         </nav>
     </header>
 
-    <main>
+    <main id="main-content">
         <!-- Bannière principale -->
         <section class="bgimage d-flex align-items-center" id="home">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hero-text">
                         <h1 class="hero_title">Salut, je suis Niels Tsakiris</h1>
-                        <p class="hero_desc">Développeur Web & Testeur Logiciel</p>
+                        <!-- Correction Sémantique: Ajout de role="heading" et aria-level="2" -->
+                        <p class="hero_desc" role="heading" aria-level="2">Développeur Web & Testeur Logiciel</p>
                     </div>
                 </div>
             </div>
@@ -70,31 +72,15 @@
                 <h2 class="text-center">À propos de moi</h2>
                 <div class="row mt-4 align-items-center">
                     <div class="col-lg-4 text-center mb-4 mb-lg-0">
-                        <!-- Optimisation CLS: Ajout de width et height explicites -->
                         <img src="images/photo-profil.webp" class="imageAboutPage" alt="Photo de profil de Niels Tsakiris" width="300" height="300">
                     </div>
-
                     <div class="col-lg-8">
-                        <p>
-                            Passionné par la qualité logicielle et le développement web, je mets mes compétences au service de la création d'applications robustes et performantes. Avec une solide expérience en tests manuels et automatisés, ainsi qu'en développement front-end avec des technologies modernes comme React, je cherche à contribuer à des projets innovants et stimulants.
-                        </p>
+                        <p>Passionné par la qualité logicielle et le développement web, je mets mes compétences au service de la création d'applications robustes et performantes. Avec une solide expérience en tests manuels et automatisés, ainsi qu'en développement front-end avec des technologies modernes comme React, je cherche à contribuer à des projets innovants et stimulants.</p>
                         <div class="row mt-3">
-                            <div class="col-md-6">
-                                <ul>
-                                    <li><strong>Email:</strong> niels.tsakiris1@gmail.com</li>
-                                    <li><strong>Téléphone:</strong> 06 42 42 88 36</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <ul>
-                                    <li><strong>Adresse:</strong> 48 rue Curial, 75019 Paris</li>
-                                    <li><strong>Anglais:</strong> Niveau C1 (TOEIC 2022)</li>
-                                </ul>
-                            </div>
+                            <div class="col-md-6"><ul><li><strong>Email:</strong> niels.tsakiris1@gmail.com</li><li><strong>Téléphone:</strong> 06 42 42 88 36</li></ul></div>
+                            <div class="col-md-6"><ul><li><strong>Adresse:</strong> 48 rue Curial, 75019 Paris</li><li><strong>Anglais:</strong> Niveau C1 (TOEIC 2022)</li></ul></div>
                         </div>
-                        <p class="mt-3">
-                            Ma formation et mes projets m'ont permis d'acquérir des compétences solides en méthodologies Agiles, en analyse de spécifications et en veille technologique, me préparant à relever les défis techniques et fonctionnels des projets web d'aujourd'hui.
-                        </p>
+                        <p class="mt-3">Ma formation et mes projets m'ont permis d'acquérir des compétences solides en méthodologies Agiles, en analyse de spécifications et en veille technologique, me préparant à relever les défis techniques et fonctionnels des projets web d'aujourd'hui.</p>
                     </div>
                 </div>
             </div>
@@ -122,36 +108,33 @@
                 <h2 class="text-center">Contactez-moi</h2>
                 <div class="row justify-content-center">
                     <div class="col-lg-4 mt-4 contactColumn">
-                        <a href="tel:+33642428836" aria-label="Me téléphoner">
-                            <i class="fas fa-phone fa-3x"></i>
-                        </a>
+                        <a href="tel:+33642428836" aria-label="Me téléphoner" role="button"><i class="fas fa-phone fa-3x" aria-hidden="true"></i></a>
                         <h3 class="mt-2 h4">Téléphone</h3>
                         <p><a href="tel:+33642428836">06 42 42 88 36</a></p>
                     </div>
                     <div class="col-lg-4 mt-4 contactColumn">
-                         <a href="mailto:niels.tsakiris1@gmail.com" aria-label="M'envoyer un email">
-                            <i class="fas fa-envelope fa-3x"></i>
-                        </a>
+                         <a href="mailto:niels.tsakiris1@gmail.com" aria-label="M'envoyer un email" role="button"><i class="fas fa-envelope fa-3x" aria-hidden="true"></i></a>
                         <h3 class="mt-2 h4">Email</h3>
                         <p><a href="mailto:niels.tsakiris1@gmail.com">niels.tsakiris1@gmail.com</a></p>
                     </div>
                     <div class="col-lg-4 mt-4 contactColumn">
-                        <a href="#" aria-label="Voir mon profil LinkedIn">
-                            <i class="fab fa-linkedin fa-3x"></i>
+                         <!-- Correction: Un seul lien fonctionnel pour LinkedIn -->
+                        <a href="https://www.linkedin.com/in/VOTRE-PROFIL" aria-label="Voir mon profil LinkedIn" role="button" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin fa-3x" aria-hidden="true"></i>
+                            <span class="sr-only">(s'ouvre dans un nouvel onglet)</span>
                         </a>
                         <h3 class="mt-2 h4">LinkedIn</h3>
-                        <p><a href="#">Profil à ajouter</a></p>
+                        <p><a href="https://www.linkedin.com/in/VOTRE-PROFIL" target="_blank" rel="noopener noreferrer">
+                            Profil LinkedIn
+                            <span class="sr-only">(s'ouvre dans un nouvel onglet)</span>
+                        </a></p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
     
-    <!-- Optimisation: Ajout de 'defer' pour ne pas bloquer le parsing HTML -->
-    <!-- Correction d'une faute de frappe: xintegrity -> integrity -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous" defer></script>
-    
-    <!-- Votre script JS personnalisé -->
     <script src="script/script.js" defer></script>
 </body>
 

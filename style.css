@@ -8,16 +8,30 @@ body {
 /* Lien d'évitement pour l'accessibilité */
 .skip-link {
     position: absolute;
-    top: -40px;
+    top: -100px;
     left: 0;
-    background: #1a252f;
+    background: #0d6efd;
     color: white;
-    padding: 8px;
-    z-index: 100;
+    padding: 10px;
+    z-index: 1000;
     transition: top 0.3s;
+    border-bottom-right-radius: 5px;
 }
 .skip-link:focus {
     top: 0;
+}
+
+/* Classe pour cacher du texte visuellement mais le garder pour les lecteurs d'écran */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 
@@ -35,12 +49,11 @@ h2 {
     margin-bottom: 3rem;
 }
 
-/* Optimisation Accessibilité: Amélioration du focus pour tous les éléments interactifs */
 a, button, [tabindex="0"] {
     transition: outline-offset 0.1s ease;
 }
 a:focus-visible, button:focus-visible, [tabindex="0"]:focus-visible {
-    outline: 3px solid #0d6efd; /* Bleu Bootstrap pour une bonne visibilité */
+    outline: 3px solid #0d6efd;
     outline-offset: 3px;
     border-radius: 2px;
 }
@@ -53,7 +66,6 @@ a:hover {
 
 
 /******* NAVBAR *******/
-/* Optimisation Contraste: Couleur de fond plus foncée pour le texte blanc */
 .navbar {
     background-color: rgba(26, 37, 47, 0.9);
     transition: background-color 0.3s ease-in-out;
@@ -83,7 +95,6 @@ a:hover {
     color: white;
 }
 
-/* Superposition pour assombrir l'image et améliorer la lisibilité du texte */
 .bgimage::before {
     content: '';
     position: absolute;
@@ -92,33 +103,31 @@ a:hover {
     width: 100%;
     height: 100%;
     /* Contraste augmenté pour une meilleure lisibilité */
-    background-color: rgba(0, 0, 0, 0.6); 
+    background-color: rgba(0, 0, 0, 0.65); 
     z-index: 1;
 }
 
 .hero-text {
     text-align: center;
     position: relative;
-    z-index: 2; /* Pour être au-dessus de la superposition */
+    z-index: 2;
     padding: 20px;
 }
 
-/* Police responsive pour une meilleure adaptation aux différentes tailles d'écran */
 .hero_title {
     font-size: clamp(2.8rem, 5vw, 4.5rem);
-    /* Ombre portée plus prononcée pour garantir le contraste */
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    text-shadow: 0 0 12px rgba(0, 0, 0, 1);
 }
 .hero_desc {
     font-size: clamp(1.3rem, 3vw, 2rem);
-    text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 1);
 }
 
 
 /******* ABOUT SECTION *******/
 .imageAboutPage {
     width: 100%;
-    max-width: 300px; /* Taille réduite pour un meilleur équilibre */
+    max-width: 300px;
     border-radius: 50%;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
     border: 5px solid white;
@@ -142,7 +151,7 @@ a:hover {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%; /* Assure que les cartes dans une même rangée ont la même hauteur */
+    height: 100%;
 }
 .card:hover {
     transform: translateY(-10px);
@@ -170,7 +179,7 @@ a:hover {
     flex-direction: column;
 }
 .card-text {
-    flex-grow: 1; /* Permet au texte de prendre l'espace disponible */
+    flex-grow: 1;
     text-align: center;
     font-size: 0.95rem;
     color: #555;
@@ -194,14 +203,13 @@ a:hover {
     text-align: center;
 }
 .contactColumn i {
-    color: #198754; /* Couleur de base de l'icône */
+    color: #198754;
     margin-bottom: 1rem;
-    /* Optimisation Performance: On n'anime que la propriété 'transform', qui est performante */
     transition: transform 0.3s ease-in-out;
 }
 .contactColumn a:hover i {
-    transform: scale(1.2); /* Animation performante */
-    color: #157347; /* Changement de couleur au survol, sans transition, pour éviter les animations non-composées */
+    transform: scale(1.2);
+    color: #157347;
 }
 .contactColumn p a {
     text-decoration: none;
