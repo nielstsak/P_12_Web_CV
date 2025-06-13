@@ -33,6 +33,6 @@
         "image": "images/algo_project.webp",
         "title": "Projet personnel 2 : Algo trading bot (Python; Optuna; Vectorbt)",
         "text": " Ce projet fournit une infrastructure complète pour développer et évaluer des stratégies de trading quantitatives. Il est conçu autour de modules distincts pour la gestion des données, la définition des stratégies, le backtesting, l'optimisation des hyperparamètres et l'exécution.L'architecture permet de tester rapidement de nouvelles idées de stratégies et de les optimiser rigoureusement grâce à des techniques avancées comme le Walk-Forward Optimization (WFO) et les algorithmes génétiques (NSGA-II).",
-        "link": "https://salonlumi-re-production.up.railway.app"
+        "link": "https://github.com/nielstsak/Algo_final.git"
     }
 ]
