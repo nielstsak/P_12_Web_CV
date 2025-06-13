@@ -22,5 +22,11 @@
         "title": "Projet 4 : Tests automatisés (Cypress)",
         "text": "Automatisation de tests fonctionnels avec Cypress pour une boutique en ligne, depuis l'analyse des besoins jusqu'à la rédaction du bilan de campagne.",
         "link": "https://github.com/nielstsak/TesteurLogiciel_Automatisez_des_tests_pour_une_boutique_en_ligne.git"
+    },
+        {
+        "image": "images/salon-lumière.webp",
+        "title": "Projet 5 : Site web barbier (Cypress)",
+        "text": "Site web complet pour le Salon Lumière, un barbier-coiffeur artisan établi à Lyon depuis 1997. L'application permet la prise de rendez-vous en ligne, la gestion administrative des services, et met en valeur l'exposition d'art permanente du salon.",
+        "link": "https://salonlumi-re-production.up.railway.app"
     }
 ]
