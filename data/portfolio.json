@@ -25,8 +25,14 @@
     },
         {
         "image": "images/salon-lumière.webp",
-        "title": "Projet 5 : Site web barbier (Cypress)",
+        "title": "Projet personnel 1  : Site web barbier (JS; Node)",
         "text": "Site web complet pour le Salon Lumière, un barbier-coiffeur artisan établi à Lyon depuis 1997. L'application permet la prise de rendez-vous en ligne, la gestion administrative des services, et met en valeur l'exposition d'art permanente du salon.",
+        "link": "https://salonlumi-re-production.up.railway.app"
+    },
+        {
+        "image": "images/algo_project.webp",
+        "title": "Projet personnel 2 : Algo trading bot (Python; Optuna; Vectorbt)",
+        "text": " Ce projet fournit une infrastructure complète pour développer et évaluer des stratégies de trading quantitatives. Il est conçu autour de modules distincts pour la gestion des données, la définition des stratégies, le backtesting, l'optimisation des hyperparamètres et l'exécution.L'architecture permet de tester rapidement de nouvelles idées de stratégies et de les optimiser rigoureusement grâce à des techniques avancées comme le Walk-Forward Optimization (WFO) et les algorithmes génétiques (NSGA-II).",
         "link": "https://salonlumi-re-production.up.railway.app"
     }
 ]
